@@ -1,0 +1,219 @@
+{
+  "info": {
+    "_postman_id": "f1b18a0e-7ed8-4406-98fa-0ed6e2c7002f",
+    "name": "lab2-ai-244-guniya",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "53920331",
+    "_collection_link": "https://go.postman.co/collection/53920331-f1b18a0e-7ed8-4406-98fa-0ed6e2c7002f?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Create categories",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Електроніка\",\r\n  \"description\": \"Смартфони, ноутбуки та інші гаджети\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/categories",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "categories"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create product",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Смартфон\",\r\n  \"description\": \"Флагманський екран 120 Гц, 256 ГБ пам'яті\",\r\n  \"price\": 18000.0,\r\n  \"stockQuantity\": 10,\r\n  \"categories\": [\r\n    { \"id\": 1 }\r\n  ]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/products",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "products"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Customer registration",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"firstName\": \"Іван\",\r\n  \"lastName\": \"Тестовий\",\r\n  \"email\": \"test@gmail.com\",\r\n  \"phone\": \"+380671234567\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/customers",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "customers"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create order",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"orderDate\": \"2026-06-11\",\r\n  \"status\": \"PROCESSING\",\r\n  \"totalAmount\": 18000.0,\r\n  \"customer\": { \"id\": 1 },\r\n  \"products\": [\r\n    { \"id\": 1 }\r\n  ]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/orders",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "orders"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Adding a position",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"quantity\": 1,\r\n  \"price\": 18000.0,\r\n  \"order\": { \"id\": 1 },\r\n  \"product\": { \"id\": 1 }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/order-items",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "order-items"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Search product",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/search/products?query=Смартфон",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "search",
+            "products"
+          ],
+          "query": [
+            {
+              "key": "query",
+              "value": "Смартфон"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Number of products",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/analytics/products/count",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "analytics",
+            "products",
+            "count"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Number of active orders",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/analytics/orders/active",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "analytics",
+            "orders",
+            "active"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
